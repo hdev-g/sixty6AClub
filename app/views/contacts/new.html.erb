@@ -1,0 +1,40 @@
+<div class="container" style="display: flex; flex-direction: column; align-items: center">
+  <p style="margin-top: 20px">We'd love to hear from you. Send us a message below.</p>
+  <div class="form-container">
+      <%= form_for @contact do |form| %>
+
+        <% if @contact.errors.any? %>
+            <div id="error_explanation">
+                <div><%= pluralize(@contact.errors.count, "error") %> prohibited this page from being saved:</div>
+                <ul>
+                  <% @contact.errors.each do |error| %>
+                      <li><%= error.full_message %></li>
+                  <% end %>
+                </ul>
+            </div>
+        <% end %>
+          <div>
+            <div>
+              <div class="mb-3">
+                  <%= form.label :name, class: "form-label" %>
+                  <%= form.text_field :name, class: "form-control" %>
+              </div>
+
+              <div class="mb-3">
+                  <%= form.label :email, class: "form-label" %>
+                  <%= form.email_field :email, class: "form-control" %>
+              </div>
+
+              <div class="mb-3">
+                  <%= form.label :message, class: "form-label" %>
+                  <%= form.text_area :message, class: "form-control" %>
+              </div>
+            </div>
+            <div class="actions flex justify-end">
+                <%= form.submit "Send", class: "btn-ghost" %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
