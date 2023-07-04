@@ -17,7 +17,7 @@
   </div>
   <div class="home-location">
     <h2>LOCATION</h2>
-    <div>
+    <div class="home-location-contents">
       <div class="address-container">
         <p>66A St Stephen Street</p>
         <p>Edinburgh</p>
@@ -26,8 +26,11 @@
         <p>Opening Hours</p>
         <p>Daily 9 - 5</p>
       </div>
-      <div>
+      <div class="mapbox-container" style="width: 40%; height: 300px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-    <div>
+    </div>
   </div>
 </div>
