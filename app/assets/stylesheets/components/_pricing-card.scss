@@ -1,0 +1,27 @@
+.pricing-card {
+  width: 325px;
+  height: 65vh;
+  border-radius: 10px;
+  border: 1px solid #CED4DA;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h3 {
+    font-family: $body-font;
+    font-size: 24px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+    margin-bottom: 50px;
+
+    i {
+      margin-right: 30px;
+    }
+  }
+}
