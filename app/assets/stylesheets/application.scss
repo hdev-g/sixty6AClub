@@ -1,0 +1,28 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+
+body {
+  background-color: #F5F5F5;
+}
+
+a{
+  text-decoration: none;
+}
+
+h1 {
+  color: #343A40;
+  font-size: 48px;
+  font-family: 'Rubik Mono One';
+  margin-bottom: 0px;
+}
