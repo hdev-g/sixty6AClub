@@ -9,6 +9,7 @@ gem "geocoder"
 gem "webpacker"
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'mail_form', '~> 1.9'
+gem 'devise'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"
