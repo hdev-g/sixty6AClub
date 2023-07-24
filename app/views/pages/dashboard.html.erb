@@ -1,0 +1,23 @@
+<div>
+  <h2>Welcome back <%= current_user.first_name %>!</h2>
+  <div class="dashboard-top">
+    <div>
+      Account Balance
+      <% if current_user.credit_balance == nil %>
+        <h3><%= 0 %></h3>
+      <% else %>
+        <h3><%= current_user.credit_balance %></h3>
+      <% end %>
+      Days
+      <%= link_to "Book", root_path, class: 'btn-ghost' %>
+    </div>
+    <div>
+    Availability this week
+    </div>
+  </div>
+  <div>
+    Upcoming bookings
+    <div>
+    </div>
+  </div>
+</div>
