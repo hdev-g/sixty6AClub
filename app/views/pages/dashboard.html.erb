@@ -1,7 +1,7 @@
-<div>
+<div class="m-3">
   <h2>Welcome back <%= current_user.first_name %>!</h2>
   <div class="dashboard-top">
-    <div>
+    <div class="user-balance-card">
       Account Balance
       <% if current_user.credit_balance == nil %>
         <h3><%= 0 %></h3>
@@ -11,8 +11,13 @@
       Days
       <%= link_to "Book", root_path, class: 'btn-ghost' %>
     </div>
-    <div>
-    Availability this week
+    <div class="calendar-container">
+    Availability
+    <%= month_calendar(desks: @all) do |date, desks| %>
+      <%= date.day %>
+      <div style="max-height: 50px; overflow: hidden;">
+      </div>
+    <% end %>
     </div>
   </div>
   <div>

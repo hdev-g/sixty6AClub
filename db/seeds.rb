@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Updating desks..."
+
+Desk.destroy_all
+
+Desk.create({
+  type: "Desk",
+  capacity: 5,
+  price: 18
+})
+
+puts "Finished creating desks"
