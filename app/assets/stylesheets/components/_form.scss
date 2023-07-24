@@ -1,9 +1,19 @@
 .form-container {
-  width: 30vw;
-  height: 60vh;
+  margin-top: 20px;
   align-content: center;
   background-color: white;
   padding: 20px;
   border: 1px solid #CED4DA;
+  border-radius: 2%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+
+  input {
+    margin-bottom: 10px;
+  }
+}
+
+
+.form-login {
+  width: 40%;
+  height: 50%;
 }

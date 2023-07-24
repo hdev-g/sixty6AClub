@@ -10,6 +10,7 @@ gem "webpacker"
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'mail_form', '~> 1.9'
 gem 'devise'
+gem "simple_form", github: "heartcombo/simple_form"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"
