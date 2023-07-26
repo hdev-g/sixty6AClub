@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/contacts', to: 'contacts#new', as: 'contact'
   get 'contacts/sent'
   get '/dashboard', to: 'pages#dashboard'
+  resources :bookings, only: [:new, :create]
 end
