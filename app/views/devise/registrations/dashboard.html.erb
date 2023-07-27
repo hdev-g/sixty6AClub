@@ -1,0 +1,74 @@
+<div class="m-3">
+  <h2>Welcome back <%= current_user.first_name %> 👋</h2>
+  <div class="d-flex main-dashboard-container">
+    <div class="dashboard-left">
+      <h3>Make Booking</h3>
+      <div class="dashboard-left-top">
+        <div class="user-balance-card">
+          Account Balance
+          <% if current_user.credit_balance == nil %>
+            <h3><%= 0 %></h3>
+          <% else %>
+            <h3><%= current_user.credit_balance %></h3>
+          <% end %>
+          Days
+        </div>
+        <div class="create-booking-card">
+          <div class="form">
+            <%= simple_form_for([@user, @booking], html: { class: "ms-4 me-4"}) do |f| %>
+              <%= f.input :date, html5: true %>
+              <%= f.submit "Book", class: "btn-ghost" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="calendar-container">
+          <h3>Check Availability</h3>
+          <%= month_calendar(desks: @all, class:"table") do |date, desks| %>
+            <%= date.day %>
+            <div style="max-height: 50px; overflow: hidden;">
+                <% if @bookings.where(date: date).count >= @desk.capacity %>
+                  <div style="height: 3px; width: 20px; background-color: red; margin: 0 auto; margin-top: 2px;"></div>
+                <% else %>
+                  <div style="height: 3px; width: 20px; background-color: green; margin: 0 auto; margin-top: 2px;"></div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-right">
+      <h3>Upcoming bookings</h3>
+      <div class="bookings-holder">
+        <% if @upcoming_bookings.count == 0 %>
+          <p>No bookings</p>
+        <% else %>
+          <% @upcoming_bookings.each do |booking| %>
+            <div class="bookings-card">
+              <%= booking.date.strftime("%-d") %>
+              <%= booking.date.strftime("%B") %>
+              <%= booking.date.strftime("%Y") %>
+              <%= button_to "❌", user_booking_path(@user, booking), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <h3>Completed bookings</h3>
+      <div class="bookings-holder">
+        <% if @completed_bookings.count == 0 %>
+          <p>No bookings</p>
+        <% else %>
+          <% @completed_bookings.each do |booking| %>
+            <div class="bookings-card">
+              <%= booking.date.strftime("%-d") %>
+              <%= booking.date.strftime("%B") %>
+              <%= booking.date.strftime("%Y") %>
+              <span>✅</span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

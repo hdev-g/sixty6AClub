@@ -12,8 +12,18 @@ Desk.destroy_all
 
 Desk.create({
   type: "Desk",
-  capacity: 5,
+  capacity: 4,
   price: 18
 })
 
 puts "Finished creating desks"
+
+puts "Creating admin users"
+
+User.create({
+  email: "harris@shoptreen.com",
+  password: "eastmains00",
+  first_name: "Harris",
+  last_name: "Grant",
+  is_admin?: true
+})

@@ -24,6 +24,22 @@
     </script>
 
     <%= yield %>
-    
+
+    <div class="flash-messages">
+      <% flash.each do |type, message| %>
+        <% flash_class = case type.to_sym
+          when :notice then "flash-success"
+          when :alert then "flash-danger"
+          else "flash-warning"
+        end %>
+        <div class="flash <%=flash_class%> alert alert-dismissible fade show" role="alert">
+          <%= message %>
+          <a data-bs-dismiss="alert" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+      <% end %>
+    </div>
+
   </body>
 </html>
