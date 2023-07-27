@@ -37,7 +37,22 @@
 }
 
 .home-about {
+  display: flex;
+  flex-direction: row;
   margin-bottom: 50px;
+}
+
+.home-about-text {
+  text-align: center;
+  padding: 100px;
+
+  h2 {
+    margin-bottom: 50px;
+  }
+
+  p {
+    font-size: 20px;
+  }
 }
 
 .address-container {
@@ -46,8 +61,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40%;
-  height: 300px;
+  width: 60%;
 
   p {
     margin-bottom: 0px;
@@ -64,14 +78,4 @@
   width: 100%;
   justify-content: space-around;
   margin-top: 20px;
-}
-
-.address-container {
-  border-radius: 10px;
-  border: 1px solid #CED4DA;
-}
-
-.mapbox-container {
-  border-radius: 10px;
-  border: 1px solid #CED4DA;
 }

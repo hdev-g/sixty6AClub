@@ -1,0 +1,38 @@
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+
+  p {
+    margin: 0px;
+  }
+}
+
+.footer-visit {
+  width: 15%;
+  margin-right: 50px;
+}
+
+.footer-opening-times {
+  width: 25%;
+
+  table {
+    border-collapse: separate;
+  }
+
+  td {
+    padding-right: 20px;
+  }
+}
+
+.footer-contact {
+  width: 25%;
+}
+
+
+.mapbox-container {
+  border-radius: 10px;
+  border: 1px solid #CED4DA;
+  margin-right: 150px;
+}

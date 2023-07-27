@@ -1,0 +1,32 @@
+<div class="footer">
+  <div class="footer-visit">
+    <p><strong>Visit</strong></p>
+    <p>66A St Stephen Street</p>
+    <p>Edinburgh</p>
+    <p>EH3 5AQ</p>
+  </div>
+  <div class="mapbox-container" style="width: 25%; height: 200px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div class="footer-opening-times">
+    <p><strong>Opening Times</strong></p>
+    <table>
+      <tbody>
+        <tr>
+          <td>Mon-Fri</td>
+          <td>9am-6pm</td>
+        </tr>
+        <tr>
+          <td>Sat-Sun</td>
+          <td>Closed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="footer-contact">
+  <p><strong>Contact</strong></p>
+  <p><strong>e:</strong> harris@shoptreen.com</p>
+  </div>
+</div>
