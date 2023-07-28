@@ -4,6 +4,15 @@
     <div class="dashboard-left">
       <h3>Make Booking</h3>
       <div class="dashboard-left-top">
+        <div class="create-booking-card">
+          <div class="form" data-controller="desk-availability">
+            <%= simple_form_for([@user, @booking], html: { class: "ms-4 me-4"}) do |f| %>
+              <%= f.input :date, html5: true, id: "booking_date", input_html: { data: { target: "desk-availability.date", action: "change->desk-availability#checkAvailability" }} %>
+              <%= f.submit "Book", class: "btn-ghost", data: { target: "desk-availability.submitButton" } %>
+            <% end %>
+            <div id="availability-info" data-target="desk-availability.availabilityInfo"></div>
+          </div>
+        </div>
         <div class="user-balance-card">
           Account Balance
           <% if current_user.credit_balance == nil %>
@@ -12,14 +21,6 @@
             <h3><%= current_user.credit_balance %></h3>
           <% end %>
           Days
-        </div>
-        <div class="create-booking-card">
-          <div class="form">
-            <%= simple_form_for([@user, @booking], html: { class: "ms-4 me-4"}) do |f| %>
-              <%= f.input :date, html5: true %>
-              <%= f.submit "Book", class: "btn-ghost" %>
-            <% end %>
-          </div>
         </div>
       </div>
       <div>

@@ -1,3 +1,7 @@
+h2 {
+  margin-top: 30px;
+}
+
 .main-dashboard-container {
   border: 1px solid #CED4DA;
   padding: 25px;
@@ -17,24 +21,9 @@
   flex-direction: row;
 }
 
-.user-balance-card {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border: 1px solid #CED4DA;
-  padding: 25px;
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  justify-content: space-between;
-  margin-right: 10px;
-}
-
 .create-booking-card {
   width: 50%;
-  margin-left: 10px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,6 +37,26 @@
   .btn-ghost {
     margin-top: 20px;
   }
+}
+
+#availability-info {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.user-balance-card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #CED4DA;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  justify-content: space-between;
+  margin-left: 10px;
 }
 
 .calendar-container {

@@ -36,6 +36,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def desks_available
+    date = params[:date]
+    # Call the Ruby method that calculates the available days
+    # Replace 'calculate_available_days' with the actual method name in your code
+    available_desks = desks_available_days(date)
+
+    render json: { desks_available: available_desks }
+  end
+
   private
 
   def booking_params
@@ -47,5 +56,11 @@ class BookingsController < ApplicationController
     booked_capacity = Booking.where(date: date)
     available_capacity = @booking.desk.capacity - booked_capacity.count
     return available_capacity <= 0
+  end
+
+  def desks_available_days(date)
+    booked_capacity = Booking.where(date: date)
+    # @booking.desk.capacity
+    4 - booked_capacity.count
   end
 end
