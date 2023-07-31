@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
       flash[:notice] = 'Your message was sent successfully!'
       redirect_to root_path
     else
-      flash[:error] = 'Could not send message'
+      flash[:alert] = 'Could not send message'
       render :new, status: :unprocessable_entity
     end
   end
