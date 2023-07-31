@@ -25,5 +25,6 @@ User.create({
   password: "eastmains00",
   first_name: "Harris",
   last_name: "Grant",
-  is_admin?: true
+  is_admin?: true,
+  business:
 })

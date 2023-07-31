@@ -4,10 +4,10 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(params[:contact])
-    @contact.request = request
+    @contact = Contact.new(contact_params)
     if @contact.deliver
-      redirect_to action: :sent
+      flash[:notice] = 'Your message was sent successfully!'
+      redirect_to root_path
     else
       flash.now[:error] = 'Could not send message'
       render :new, status: :unprocessable_entity
@@ -15,5 +15,11 @@ class ContactsController < ApplicationController
   end
 
   def sent
+  end
+
+  private
+
+  def contact_params
+    params.require(:contact).permit(:name, :email, :message)
   end
 end

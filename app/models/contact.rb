@@ -7,8 +7,7 @@ class Contact < MailForm::Base
     {
       to: 'info@kinda.works', # change this to be the email you want sent to
       subject: 'Co-working Request',
-      from: 'info@kinda.works',  # change this to be the email it is coming from
-      reply_to: %("#{name}" <#{email}>)
+      from: %("#{name}" <#{email}>)  # change this to be the email it is coming from
     }
   end
 end
