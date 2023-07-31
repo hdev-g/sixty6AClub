@@ -5,7 +5,7 @@ class Contact < MailForm::Base
 
   def headers
     {
-      to: 'harris@shoptreen.com', # change this to be the email you want sent to
+      to: 'info@kinda.works', # change this to be the email you want sent to
       subject: 'Co-working Request',
       from: 'info@kinda.works',  # change this to be the email it is coming from
       reply_to: %("#{name}" <#{email}>)
