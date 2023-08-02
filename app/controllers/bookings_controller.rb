@@ -3,6 +3,14 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def index
+    if current_user.is_admin?
+      @bookings = Booking.all
+    end
+      @upcoming_bookings = upcoming_bookings
+      @completed_bookings = completed_bookings
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
@@ -19,21 +27,17 @@ class BookingsController < ApplicationController
     end
   end
 
-  def upcoming_bookings
-    user = current_user
-    @upcoming_bookings = user.bookings.where("date > ?", Date.today)
-  end
-
   def destroy
     @user = current_user
     @booking = @user.bookings.find(params[:id])
-    if current_user == @booking.user # || current_user.is_admin?
+    if current_user == @booking.user || current_user.is_admin?
       @booking.destroy
-      redirect_to user_dashboard_path
       flash[:notice] = "Your booking was deleted successfully!"
     else
       flash[:alert] = "Your are not authorized to delete this booking!"
     end
+
+    redirect_back(fallback_location: user_dashboard_path)
   end
 
   def desks_available
@@ -62,5 +66,13 @@ class BookingsController < ApplicationController
     booked_capacity = Booking.where(date: date)
     # @booking.desk.capacity
     4 - booked_capacity.count
+  end
+
+  def upcoming_bookings
+    current_user.bookings.where("date >= ?", Date.today).order(date: :asc)
+  end
+
+  def completed_bookings
+    current_user.bookings.where("date < ?", Date.today).order(date: :desc)
   end
 end

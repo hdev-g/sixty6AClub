@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'dashboard', to: 'users/registrations#dashboard', as: :user_dashboard
     resources :users do
-      resources :bookings, only: [:create, :destroy]
+      resources :bookings, only: [ :index, :create ]
     end
   end
+
+  resources :bookings, only: [ :destroy ]
 
   root to: 'pages#home'
   get 'pricing', to: 'pages#pricing'

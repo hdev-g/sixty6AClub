@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = current_user
       @booking = Booking.new
       @bookings = @user.bookings.order(date: :asc)
-      @upcoming_bookings = current_user.bookings.where("date >= ?", Date.today).order(date: :desc)
+      @upcoming_bookings = current_user.bookings.where("date >= ?", Date.today).order(date: :asc)
       @completed_bookings = current_user.bookings.where("date < ?", Date.today).order(date: :desc)
       @desk = Desk.last
     else

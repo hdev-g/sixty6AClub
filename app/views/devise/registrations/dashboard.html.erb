@@ -1,4 +1,4 @@
-<div class="m-3">
+<div class="m-3 dashboard">
   <h2>Welcome back <%= current_user.first_name %> 👋</h2>
   <div class="d-flex main-dashboard-container">
     <div class="dashboard-left">
@@ -7,7 +7,7 @@
         <div class="create-booking-card">
           <div class="form" data-controller="desk-availability">
             <%= simple_form_for([@user, @booking], html: { class: "ms-4 me-4"}) do |f| %>
-              <%= f.input :date, html5: true, id: "booking_date", input_html: { data: { target: "desk-availability.date", action: "change->desk-availability#checkAvailability" }} %>
+              <%= f.input :date, label: false, html5: true, id: "booking_date", input_html: { data: { target: "desk-availability.date", action: "change->desk-availability#checkAvailability" }} %>
               <%= f.submit "Book", class: "btn-ghost", data: { target: "desk-availability.submitButton" } %>
             <% end %>
             <div id="availability-info" data-target="desk-availability.availabilityInfo"></div>
@@ -45,14 +45,17 @@
         <% if @upcoming_bookings.count == 0 %>
           <p>No bookings</p>
         <% else %>
-          <% @upcoming_bookings.each do |booking| %>
+          <% @upcoming_bookings.first(5).each do |booking| %>
             <div class="bookings-card">
               <%= booking.date.strftime("%-d") %>
               <%= booking.date.strftime("%B") %>
               <%= booking.date.strftime("%Y") %>
-              <%= button_to "❌", user_booking_path(@user, booking), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+              <%= button_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, booking_path(booking), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
             </div>
           <% end %>
+        <% end %>
+        <% if @upcoming_bookings.count > 5%>
+          <%= link_to "See all", user_bookings_path(current_user)%>
         <% end %>
       </div>
       <h3>Completed bookings</h3>
@@ -60,7 +63,7 @@
         <% if @completed_bookings.count == 0 %>
           <p>No bookings</p>
         <% else %>
-          <% @completed_bookings.each do |booking| %>
+          <% @completed_bookings.first(5).each do |booking| %>
             <div class="bookings-card">
               <%= booking.date.strftime("%-d") %>
               <%= booking.date.strftime("%B") %>
@@ -68,6 +71,9 @@
               <span>✅</span>
             </div>
           <% end %>
+        <% end %>
+        <% if @completed_bookings.count > 5%>
+          <%= link_to "See all", user_bookings_path(current_user)%>
         <% end %>
       </div>
     </div>

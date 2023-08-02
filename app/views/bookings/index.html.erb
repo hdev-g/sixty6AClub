@@ -1,0 +1,56 @@
+<div class="m-3">
+  <div class="bookings-container">
+    <h2>Upcoming Bookings</h2>
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>User</th>
+            <th>Business</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @upcoming_bookings.each do |booking| %>
+            <tr>
+              <td><%= current_user.first_name %> <%= current_user.last_name %></td>
+              <td><%= current_user.business %>
+              <td><%= current_user.email %></td>
+              <td><%= booking.date %></td>
+              <td><%= button_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, booking_path(booking), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="bookings-container">
+    <h2>Completed Bookings</h2>
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>User</th>
+            <th>Business</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @completed_bookings.each do |booking| %>
+            <tr>
+              <td><%= current_user.first_name %> <%= current_user.last_name %></td>
+              <td><%= current_user.business %>
+              <td><%= current_user.email %></td>
+              <td><%= booking.date %></td>
+              <td>✌️</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

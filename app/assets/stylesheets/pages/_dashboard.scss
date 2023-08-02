@@ -2,11 +2,30 @@ h2 {
   margin-top: 30px;
 }
 
+input {
+  text-align: center;
+}
+
+i {
+  color: $greytext;
+}
+
+a {
+  color: $greytext;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .main-dashboard-container {
   border: 1px solid #CED4DA;
   padding: 25px;
   margin-top: 30px;
-  width: 70%;
+  width: 80%;
+  box-shadow: 0 0 0px rgba(0,0,0,0.2);
 }
 
 .dashboard-left {
@@ -14,6 +33,7 @@ h2 {
   flex-direction: column;
   width: 60%;
   margin-right: 40px;
+  padding: 0px 20px;
 }
 
 .dashboard-left-top {
@@ -32,10 +52,15 @@ h2 {
   padding: 25px;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 
   .btn-ghost {
     margin-top: 20px;
+  }
+
+  .booking-date {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -54,7 +79,7 @@ h2 {
   padding: 25px;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   justify-content: space-between;
   margin-left: 10px;
 }
@@ -149,6 +174,7 @@ h2 {
   display: flex;
   flex-direction: column;
   width: 40%;
+  padding: 0px 20px;
 }
 
 .bookings-holder {
@@ -165,7 +191,7 @@ h2 {
   border-radius: 5px;
   background-color: white;
   margin-bottom: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   justify-content: space-between;
   align-items: center;
 
