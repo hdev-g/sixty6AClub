@@ -1,0 +1,27 @@
+  <div class="bookings-container">
+    <h2>Bookings</h2>
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>User</th>
+            <th>Business</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bookings.each do |booking| %>
+            <tr>
+              <td><%= booking.user.first_name %> <%= booking.user.last_name %></td>
+              <td><%= booking.user.business %>
+              <td><%= booking.user.email %></td>
+              <td><%= booking.date %></td>
+              <td><%= button_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, booking_path(booking), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

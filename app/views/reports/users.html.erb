@@ -1,0 +1,31 @@
+<div class="m-3">
+  <div class="bookings-container">
+    <h2>Users</h2>
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Business</th>
+            <th>Email</th>
+            <th>Joined Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.first_name %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.business %>
+              <td><%= user.email %></td>
+              <td><%= user.created_at %></td>
+              <td>edit or make admin</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
