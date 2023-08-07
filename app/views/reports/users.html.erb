@@ -1,5 +1,6 @@
 <div class="m-3">
-  <div class="bookings-container">
+  <%= link_to "< Reports", user_reports_path(current_user) %>
+  <div class="bookings-container mt-2">
     <h2>Users</h2>
     <div class="table-responsive">
       <table class="table">
@@ -10,7 +11,6 @@
             <th>Business</th>
             <th>Email</th>
             <th>Joined Date</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -21,7 +21,6 @@
               <td><%= user.business %>
               <td><%= user.email %></td>
               <td><%= user.created_at %></td>
-              <td>edit or make admin</td>
             </tr>
           <% end %>
         </tbody>

@@ -11,18 +11,21 @@ Rails.application.routes.draw do
         collection do
           get :users_report, to: 'reports#users'
           get :bookings_report, to: 'reports#bookings'
+          get :desks_report, to: 'reports#desks'
         end
       end
     end
   end
 
   resources :bookings, only: [:destroy]
+  resources :desks, only: [:edit, :update]
 
   root to: 'pages#home'
   get 'pricing', to: 'pages#pricing'
   resources :contacts, only: [:new, :create]
   get '/contacts', to: 'contacts#new', as: 'contact'
   get 'contacts/sent'
+
 
   # Add the API endpoint route
   namespace :bookings do

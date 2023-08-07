@@ -1,5 +1,4 @@
 class ReportsController < ApplicationController
-
   def index
   end
 
@@ -11,4 +10,7 @@ class ReportsController < ApplicationController
     @bookings = Booking.all.order(date: :asc)
   end
 
+  def desks
+    @desks = Desk.all
+  end
 end

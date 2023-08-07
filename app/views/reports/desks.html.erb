@@ -1,0 +1,28 @@
+<div class="m-3">
+  <%= link_to "< Reports", user_reports_path(current_user) %>
+  <div class="bookings-container mt-2">
+    <h2>Desks</h2>
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Type</th>
+            <th>Capacity</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @desks.each do |desk| %>
+            <tr>
+              <td><%= desk.type %></td>
+              <td><%= desk.capacity %></td>
+              <td><%= desk.price %></td>
+              <td><%= link_to "Edit", edit_desk_path(desk) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
