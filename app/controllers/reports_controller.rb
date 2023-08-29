@@ -8,6 +8,7 @@ class ReportsController < ApplicationController
 
   def bookings
     @bookings = Booking.all.order(date: :asc)
+    
   end
 
   def desks

@@ -6,9 +6,17 @@ class BookingsController < ApplicationController
   def index
     if current_user.is_admin?
       @bookings = Booking.all
+
+      respond_to do |format|
+        format.html
+        format.csv do
+          send_data Booking.to_csv, filename: "Bookings_#{Date.today}", content_type: "text/csv"
+        end
+      end
     end
-      @upcoming_bookings = upcoming_bookings
-      @completed_bookings = completed_bookings
+
+    @upcoming_bookings = upcoming_bookings
+    @completed_bookings = completed_bookings
   end
 
   def create
@@ -20,6 +28,8 @@ class BookingsController < ApplicationController
       redirect_to user_dashboard_path
     elsif @booking.save
       flash[:notice] = "Booking created successfully!"
+      BookingMailer.booking_confirmation(current_user, @booking).deliver_now
+      BookingMailer.admin_notification('info@kinda.works', @booking).deliver_now
       redirect_to user_dashboard_path
     else
       flash[:alert] = "Booking could not be created. Please check the form and try again."

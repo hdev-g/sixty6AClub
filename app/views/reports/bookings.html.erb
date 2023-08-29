@@ -2,6 +2,7 @@
   <%= link_to "< Reports", user_reports_path(current_user) %>
   <div class="bookings-container mt-2">
     <h2>Bookings</h2>
+    <%= link_to "CSV", user_bookings_path(format: :csv), download: ["Bookings_", Date.today]%>
     <div class="table-responsive">
       <table class="table">
         <thead class="thead-dark">
