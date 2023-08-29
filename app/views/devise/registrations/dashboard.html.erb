@@ -2,30 +2,19 @@
   <h2>Welcome back <%= current_user.first_name %> 👋</h2>
   <div class="d-flex main-dashboard-container">
     <div class="dashboard-left">
-      <h3>Make Booking</h3>
-      <div class="dashboard-left-top">
-        <div class="create-booking-card">
-          <div class="form" data-controller="desk-availability">
-            <%= simple_form_for([@user, @booking], html: { class: "ms-4 me-4"}) do |f| %>
-              <%= f.input :date, label: false, html5: true, id: "booking_date", input_html: { data: { target: "desk-availability.date", action: "change->desk-availability#checkAvailability" }} %>
-              <%= f.submit "Book", class: "btn-ghost", data: { target: "desk-availability.submitButton" } %>
-            <% end %>
-            <div id="availability-info" data-target="desk-availability.availabilityInfo"></div>
-          </div>
-        </div>
-        <div class="user-balance-card">
-          Account Balance
-          <% if current_user.credit_balance == nil %>
-            <h3><%= 0 %></h3>
-          <% else %>
-            <h3><%= current_user.credit_balance %></h3>
+      <h3>Book a desk 💻</h3>
+      <div class="create-booking-card">
+        <div class="form" data-controller="desk-availability">
+          <%= simple_form_for([@user, @booking], html: { class: "ms-4 me-4"}) do |f| %>
+            <%= f.input :date, label: false, html5: true, id: "booking_date", input_html: { data: { target: "desk-availability.date", action: "change->desk-availability#checkAvailability" }} %>
+            <div id="availability-info" data-target="desk-availability.availabilityInfo">Select date</div>
+            <%= f.submit "Book", class: "btn-ghost", data: { target: "desk-availability.submitButton" } %>
           <% end %>
-          Days
         </div>
       </div>
       <div>
         <div class="calendar-container">
-          <h3>Check Availability</h3>
+          <h3>Availability</h3>
           <%= month_calendar(desks: @all, class:"table") do |date, desks| %>
             <%= date.day %>
             <div style="max-height: 50px; overflow: hidden;">
@@ -41,40 +30,22 @@
     </div>
     <div class="dashboard-right">
       <h3>Upcoming bookings</h3>
+      <div class="bookings-count">
+        <%= link_to @upcoming_bookings.count, user_bookings_path(current_user), class: "dropdown-item"%>
+      </div>
       <div class="bookings-holder">
-        <% if @upcoming_bookings.count == 0 %>
-          <p>No bookings</p>
-        <% else %>
-          <% @upcoming_bookings.first(5).each do |booking| %>
-            <div class="bookings-card">
-              <%= booking.date.strftime("%-d") %>
-              <%= booking.date.strftime("%B") %>
-              <%= booking.date.strftime("%Y") %>
-              <%= button_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, booking_path(booking), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
-            </div>
-          <% end %>
-        <% end %>
-        <% if @upcoming_bookings.count > 5%>
-          <%= link_to "See all", user_bookings_path(current_user)%>
+        <% @upcoming_bookings.first(5).each do |booking| %>
+          <div class="bookings-card">
+            <%= booking.date.strftime("%-d") %>
+            <%= booking.date.strftime("%B") %>
+            <%= booking.date.strftime("%Y") %>
+            <%= button_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, booking_path(booking), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+          </div>
         <% end %>
       </div>
       <h3>Completed bookings</h3>
-      <div class="bookings-holder">
-        <% if @completed_bookings.count == 0 %>
-          <p>No bookings</p>
-        <% else %>
-          <% @completed_bookings.first(5).each do |booking| %>
-            <div class="bookings-card">
-              <%= booking.date.strftime("%-d") %>
-              <%= booking.date.strftime("%B") %>
-              <%= booking.date.strftime("%Y") %>
-              <span>✅</span>
-            </div>
-          <% end %>
-        <% end %>
-        <% if @completed_bookings.count > 5%>
-          <%= link_to "See all", user_bookings_path(current_user)%>
-        <% end %>
+      <div class="bookings-count">
+        <%= link_to @completed_bookings.count, user_bookings_path(current_user), class: "dropdown-item" %>
       </div>
     </div>
   </div>

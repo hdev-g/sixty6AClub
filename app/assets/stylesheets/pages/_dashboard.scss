@@ -23,19 +23,15 @@ a {
   margin-top: 30px;
   width: 80%;
   box-shadow: 0 0 0px rgba(0,0,0,0.2);
+  justify-content: space-between;
 }
 
 .dashboard-left {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 50%;
   margin-right: 40px;
   padding: 0px 20px;
-}
-
-.dashboard-left-top {
-  display: flex;
-  flex-direction: row;
 }
 
 .create-booking-card {
@@ -63,21 +59,6 @@ a {
 #availability-info {
   margin-top: 10px;
   font-size: 12px;
-}
-
-.user-balance-card {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border: 1px solid #CED4DA;
-  padding: 25px;
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  justify-content: space-between;
-  margin-left: 10px;
 }
 
 .calendar-container {
@@ -173,10 +154,31 @@ a {
   padding: 0px 20px;
 }
 
+.bookings-count {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #CED4DA;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #4A4A4A;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  a {
+    font-size: 28px;
+    color: #CED4DA;
+  }
+}
+
 .bookings-holder {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .bookings-card {
@@ -191,6 +193,7 @@ a {
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 
   button {
     all: unset;

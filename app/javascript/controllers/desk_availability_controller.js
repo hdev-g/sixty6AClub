@@ -13,6 +13,7 @@ export default class extends Controller {
   async checkAvailability() {
     const selectedDate = new Date(this.dateTarget.value);
     const today = new Date();
+    const yesterday = today.setDate(today.getDate() - 1);
     // const desksAvailable = 4; // Replace with the actual number of desks available
 
     try {
@@ -26,10 +27,10 @@ export default class extends Controller {
       // Access the available_days data from the response
       const desksAvailable = data.desks_available;
 
-      if (selectedDate < today || desksAvailable === 0) {
+      if (selectedDate < yesterday || desksAvailable === 0) {
         this.submitButtonTarget.disabled = true;
         this.availabilityInfoTarget.textContent =
-          selectedDate < today
+          selectedDate < yesterday
             ? "Date is in the past. Please select another date."
             : "No desks available on this date. Please select another date.";
       } else {

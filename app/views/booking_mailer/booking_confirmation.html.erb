@@ -1,6 +1,16 @@
 <div>
   <div>
     <h2>Booking Confirmed</h2>
-    <p><%= @user.first_name %> your booking for <%= @booking.date.strftime("%-d") %> <%= @booking.date.strftime("%B") %> <%= @booking.date.strftime("%Y") %> has been confirmed ✌️ </p>
+    <p><%= @user.first_name %></p>
+    <p>Your booking for <%= @booking.date.strftime("%-d") %> <%= @booking.date.strftime("%B") %> <%= @booking.date.strftime("%Y") %> has been confirmed</p>
+    <p>You can cancel this booking anytime by logging in to your account <a href="https://www.kinda.works/users/sign_in">here</a></p>
+    <p>Enjoy ✌️</p>
+  </div>
+  <br>
+  <div>
+    <p>kinda.works</p>
+    <p>66A St Stephen St</p>
+    <p>Edinburgh</p>
+    <p>EH4 1HT</p>
   </div>
 </div>
