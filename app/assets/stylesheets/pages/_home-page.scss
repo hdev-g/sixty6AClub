@@ -43,7 +43,10 @@
 }
 
 .home-about-text {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
   padding: 100px;
 
   h2 {
@@ -52,6 +55,11 @@
 
   p {
     font-size: 20px;
+  }
+
+  .btn-ghost {
+    margin-top: 20px;
+    width: 150px;
   }
 }
 
