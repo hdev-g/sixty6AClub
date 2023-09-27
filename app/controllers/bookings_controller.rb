@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
       respond_to do |format|
         format.html
         format.csv do
-          send_data Booking.to_csv, filename: "Bookings_#{Date.today}", content_type: "text/csv"
+          send_data @bookings.to_csv, filename: "Bookings_#{Date.today}.csv", content_type: "text/csv"
         end
       end
     end
