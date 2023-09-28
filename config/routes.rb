@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'pricing', to: 'pages#pricing'
   get 'privacy_policy', to: 'pages#privacy_policy'
-  get 'privacy_policy', to: 'pages#privacy_policy'
+  get 'terms', to: 'pages#terms'
   resources :contacts, only: [:new, :create]
   get '/contacts', to: 'contacts#new', as: 'contact'
   get 'contacts/sent'
