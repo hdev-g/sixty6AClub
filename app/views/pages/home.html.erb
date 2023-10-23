@@ -8,7 +8,7 @@
 <div class="container">
   <div class="home-about">
     <div class="home-about-image">
-      <%= image_tag("about2.jpg", width: 400, height: 550) %>
+      <%= image_tag("about2.jpg") %>
     </div>
     <div class="home-about-text">
       <h2>Our office studio is perfect for creative professionals and freelancers</h2>
@@ -17,14 +17,12 @@
       <%= link_to "Pricing", pricing_path, class: 'btn-ghost' %>
     </div>
   </div>
+</div>
+<div class="container">
   <div class="home-deskmap">
-  <%= image_tag("floor-plan.png", width: 600, height: 300) %>
+    <%= image_tag("floor-plan.png") %>
   </div>
-  <div class="home-location">
-    <div class="home-location-contents">
-      <div class="address-container">
-        <h2>To enquire about our desk spaces, please contact info@kinda.works</h2>
-      </div>
-    </div>
+  <div class="enquiry-container">
+    <h2>To enquire about our desk spaces, please contact info@kinda.works</h2>
   </div>
 </div>

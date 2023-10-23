@@ -24,6 +24,12 @@ a {
   width: 80%;
   box-shadow: 0 0 0px rgba(0,0,0,0.2);
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+  }
 }
 
 .dashboard-left {
@@ -32,6 +38,15 @@ a {
   width: 50%;
   margin-right: 40px;
   padding: 0px 20px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-right: 0px;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
 }
 
 .create-booking-card {
@@ -54,6 +69,11 @@ a {
   input {
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-right: 0px;
+  }
 }
 
 #availability-info {
@@ -64,6 +84,10 @@ a {
 .calendar-container {
   margin-top: 20px;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
 }
 
@@ -152,6 +176,13 @@ a {
   flex-direction: column;
   width: 40%;
   padding: 0px 20px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-right: 0px;
+    margin-top: 20px;
+    align-items: center;
+  }
 }
 
 .bookings-count {

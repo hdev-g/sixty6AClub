@@ -4,16 +4,24 @@
   display: flex;
   flex-direction: row;
   border-top: 1px solid #CED4DA;
-  max-height: 240px;
 
   p {
     margin: 0px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 }
 
 .footer-visit {
   width: 15%;
   margin-right: 50px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .footer-opening-times {
@@ -23,13 +31,30 @@
     border-collapse: separate;
   }
 
-  td {
-    padding-right: 20px;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    table {
+      width: 50%;
+    }
   }
 }
 
-.footer-other {
+.footer-policies {
   width: 25%;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
 }
 
 
@@ -37,4 +62,10 @@
   border-radius: 10px;
   border: 1px solid #CED4DA;
   margin-right: 150px;
+  width: 25%;
+  height: auto;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }

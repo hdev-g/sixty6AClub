@@ -13,5 +13,41 @@
 }
 
 .navbar-right-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-list {
   align-items: center;
+
+  .dropdown-menu {
+    position: absolute;
+    right: -10px;
+    text-align: center;
+    width: 20vw;
+  }
+
+}
+
+.hamburger {
+  display: none; // Hide initially
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: $greytext;
+    margin: 4px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  // Show the hamburger icon on mobile devices
+  .nav-item {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
 }

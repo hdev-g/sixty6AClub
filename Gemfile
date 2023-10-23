@@ -11,6 +11,7 @@ gem 'mail_form', '~> 1.9'
 gem 'devise'
 gem "simple_form", github: "heartcombo/simple_form"
 gem "simple_calendar", "~> 2.4"
+gem "stimulus-rails"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"
