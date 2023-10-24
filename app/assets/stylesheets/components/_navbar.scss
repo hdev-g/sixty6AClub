@@ -31,13 +31,6 @@
 
 .hamburger {
   display: none; // Hide initially
-
-  .bar {
-    width: 25px;
-    height: 3px;
-    background-color: $greytext;
-    margin: 4px 0;
-  }
 }
 
 @media (max-width: 768px) {
@@ -49,5 +42,10 @@
   .hamburger {
     display: block;
     cursor: pointer;
+
+    i {
+      font-size: x-large;
+      margin-right: 10px;
+    }
   }
 }
