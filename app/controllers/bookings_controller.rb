@@ -73,6 +73,7 @@ class BookingsController < ApplicationController
   end
 
   def desks_available_days(date)
+    @desk = Desk.last
     booked_capacity = Booking.where(date: date)
     # @booking.desk.capacity
     @desk.capacity - booked_capacity.count

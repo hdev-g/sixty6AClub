@@ -12,8 +12,11 @@ export default class extends Controller {
   // Function to check the availability and update the availability info
   async checkAvailability() {
     const selectedDate = new Date(this.dateTarget.value);
+    console.log("Selected date value:", this.dateTarget.value);
     const today = new Date();
-    const yesterday = today.setDate(today.getDate() - 1);
+    const yesterday = new Date();
+    yesterday.setDate(today.getDate() - 1);
+    
     // const desksAvailable = 4; // Replace with the actual number of desks available
 
     try {
