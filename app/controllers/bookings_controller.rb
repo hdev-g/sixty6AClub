@@ -59,6 +59,13 @@ class BookingsController < ApplicationController
     render json: { desks_available: available_desks }
   end
 
+  def capacity_full_for_date?(date)
+    # Implement logic to check if the capacity is full for the given date
+    booked_capacity = Booking.where(date: date)
+    available_capacity = @booking.desk.capacity - booked_capacity.count
+    return available_capacity <= 0
+  end
+  
   private
 
   def booking_params
